@@ -1,6 +1,8 @@
 from socket import timeout
+import os
 import time
 import logging
+import telegram
 import pyshorteners
 from telegram import ChatAction, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
@@ -79,7 +81,9 @@ def input_url(update,context):
 
 def main() -> None:
 
-    updater = Updater("TOKEN")
+    token = os.environ['TOKEN']
+    bot = telegram.Bot(token = token)
+    updater = Updater(token = token, use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start",start))
