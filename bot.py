@@ -79,7 +79,7 @@ def input_url(update,context):
 
 def main() -> None:
 
-    updater = Updater("5202799890:AAESmZj4AR7SsTo6UlJUQYnR5Mbnq-bBWEM")
+    updater = Updater("TOKEN")
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start",start))
